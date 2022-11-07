@@ -37,11 +37,8 @@ bot.command('testdb',ctx=>{
 app.use(bot.webhookCallback(`/`))
 
 
-app.get('/',(req,res)=>{
-    res.json({"status":"The bot is running"})
-})
 
-app.get('/data',(req,res)=>{
+app.get('/',(req,res)=>{
     testmodel.find()
     .then(data=>{
         res.json({"data":data[0].msg})
