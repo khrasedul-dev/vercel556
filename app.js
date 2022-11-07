@@ -41,6 +41,15 @@ app.get('/',(req,res)=>{
     res.json({"status":"The bot is running"})
 })
 
+app.get('/data',(req,res)=>{
+    testmodel.find()
+    .then(data=>{
+        res.json({"data":data[0].msg})
+    })
+    .catch(e=>console.log(e))
+})
+
+
 app.listen(5000,()=>{
     console.log("The bot is running")
 })
